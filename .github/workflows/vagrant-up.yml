@@ -4,7 +4,7 @@ on: [workflow_dispatch]
 
 jobs:
   vagrant-up:
-    runs-on: macos-latest
+    runs-on: macos-12
 
     steps:
     - uses: actions/checkout@v4
@@ -13,7 +13,7 @@ jobs:
       run: uname -m
 
     - name: Cache Vagrant boxes
-      uses: actions/cache@v3
+      uses: actions/cache@v4
       with:
         path: ~/.vagrant.d/boxes
         key: ${{ runner.os }}-vagrant-${{ hashFiles('Vagrantfile') }}
