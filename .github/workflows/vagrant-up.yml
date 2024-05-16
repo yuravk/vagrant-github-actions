@@ -7,13 +7,13 @@ jobs:
     runs-on: macos-latest
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v4
 
     - name: Show info
       run: uname -m
 
     - name: Cache Vagrant boxes
-      uses: actions/cache@v2
+      uses: actions/cache@v4
       with:
         path: ~/.vagrant.d/boxes
         key: ${{ runner.os }}-vagrant-${{ hashFiles('Vagrantfile') }}
