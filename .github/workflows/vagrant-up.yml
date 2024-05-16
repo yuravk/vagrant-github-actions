@@ -24,4 +24,4 @@ jobs:
       run: vagrant up
 
     - name: ssh into box after boot
-      run: vagrant ssh -c "cat /etc/almalinux-release"
+      run: vagrant ssh -c "cat /etc/almalinux-release && uname -m"
