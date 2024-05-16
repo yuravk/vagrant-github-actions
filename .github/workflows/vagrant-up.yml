@@ -4,24 +4,27 @@ on: [workflow_dispatch]
 
 jobs:
   vagrant-up:
-    runs-on: macos-12
+    runs-on: macos-latest
 
     steps:
     - uses: actions/checkout@v2
 
-    - name: Cache Vagrant boxes
-      uses: actions/cache@v2
-      with:
-        path: ~/.vagrant.d/boxes
-        key: ${{ runner.os }}-vagrant-${{ hashFiles('Vagrantfile') }}
-        restore-keys: |
-          ${{ runner.os }}-vagrant-
+    - name: Show info
+      run: uname -m
 
-    - name: Show Vagrant version
-      run: vagrant --version
+    # - name: Cache Vagrant boxes
+    #   uses: actions/cache@v2
+    #   with:
+    #     path: ~/.vagrant.d/boxes
+    #     key: ${{ runner.os }}-vagrant-${{ hashFiles('Vagrantfile') }}
+    #     restore-keys: |
+    #       ${{ runner.os }}-vagrant-
 
-    - name: Run vagrant up
-      run: vagrant up
+    # - name: Show Vagrant version
+    #   run: vagrant --version
 
-    - name: ssh into box after boot
-      run: vagrant ssh -c "cat /etc/almalinux-release && uname -m"
+    # - name: Run vagrant up
+    #   run: vagrant up
+
+    # - name: ssh into box after boot
+    #   run: vagrant ssh -c "cat /etc/almalinux-release && uname -m"
