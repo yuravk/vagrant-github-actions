@@ -4,13 +4,15 @@ on: [workflow_dispatch]
 
 jobs:
   vagrant-up:
-    runs-on: macos-12
+    runs-on: macos-14
 
     steps:
     - uses: actions/checkout@v4
 
-    - name: Show info
-      run: uname -m
+    - name: Install Vagrant
+      run: |
+        brew tap hashicorp/tap
+        brew install hashicorp/tap/hashicorp-vagrant
 
     - name: Cache Vagrant boxes
       uses: actions/cache@v4
