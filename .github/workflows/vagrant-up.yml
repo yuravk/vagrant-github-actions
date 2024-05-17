@@ -14,6 +14,11 @@ jobs:
         brew tap hashicorp/tap
         brew install hashicorp/tap/hashicorp-vagrant
 
+    - name: Install VirtualBox
+      run: |
+        sudo brew install --cask virtualbox
+        sudo brew install --cask virtualbox-extension-pack
+
     - name: Cache Vagrant boxes
       uses: actions/cache@v4
       with:
