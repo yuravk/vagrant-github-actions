@@ -16,8 +16,8 @@ jobs:
 
     - name: Install VirtualBox
       run: |
-        sudo brew install --cask virtualbox
-        sudo brew install --cask virtualbox-extension-pack
+        brew install --cask virtualbox
+        brew install --cask virtualbox-extension-pack
 
     - name: Cache Vagrant boxes
       uses: actions/cache@v4
