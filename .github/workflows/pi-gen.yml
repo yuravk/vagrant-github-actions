@@ -1,0 +1,12 @@
+name: pi-gen
+
+on: [workflow_dispatch]
+
+jobs:
+    pi-gen-verbose:
+      runs-on: ubuntu-latest
+      steps:
+        - uses: usimd/pi-gen-action@v1
+          with:
+            image-name: test
+            verbose-output: true
