@@ -4,20 +4,20 @@ on: [workflow_dispatch]
 
 jobs:
   vagrant-up:
-    runs-on: macos-14
+    runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v4
 
-    - name: Install Vagrant
-      run: |
-        brew tap hashicorp/tap
-        brew install hashicorp/tap/hashicorp-vagrant
+    # - name: Install Vagrant
+    #   run: |
+    #     brew tap hashicorp/tap
+    #     brew install hashicorp/tap/hashicorp-vagrant
 
-    - name: Install VirtualBox
-      run: |
-        brew install --cask virtualbox
-        brew install --cask virtualbox-extension-pack
+    # - name: Install VirtualBox
+    #   run: |
+    #     brew install --cask virtualbox
+    #     brew install --cask virtualbox-extension-pack
 
     - name: Cache Vagrant boxes
       uses: actions/cache@v4
